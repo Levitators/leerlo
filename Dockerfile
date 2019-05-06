@@ -16,7 +16,7 @@ WORKDIR /server
 
 COPY --from=react-build /app/build build/
 
-COPY main.go go.mod go.sum ./
+COPY main.go tokenHandler.go go.mod go.sum ./
 
 RUN go mod download
 

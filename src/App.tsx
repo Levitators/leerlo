@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { StoreContext } from 'redux-react-hook';
 import Login from './Login'
 import Home from './Home'
 import Redirect from './Redirect'
-import { makeStore } from './store';
 
 const App = () => {
-  const store = makeStore();
   return (
-    <StoreContext.Provider value={store}>
-      <Router>
+    <Router>
+      <div>
         <Route path="/" exact component={Login} />
-        <Route path="/login-success" exact component={Redirect} />
-        <Route path="/home" exact component={Home} />
-      </Router>
-    </StoreContext.Provider>
+        <Route path="/login-success" component={Redirect} />
+        <Route path="/home" component={Home} />
+      </div>
+    </Router>
   );
 }
 

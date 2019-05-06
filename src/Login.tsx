@@ -7,7 +7,7 @@ const Login = () => {
 
   const openPopup = () => {
     const url = 'https://www.reddit.com/api/v1/authorize' +
-      `?client_id=CLIENT_ID` +
+      `?client_id=YdNu-wlTwwHI6A` +
       `&response_type=code` +
       `&state=${new Date().valueOf().toString()}` +
       `&redirect_uri=http://localhost:3000/login-success` +
