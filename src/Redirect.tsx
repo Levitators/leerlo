@@ -7,13 +7,9 @@ const LoginSuccess = (props: any) => {
   useEffect(() => {
     let params = new URLSearchParams(props.location.search)
     const authToken = params.get('code')
-    fetch(`https://www.reddit.com/api/v1/access_token?grant_type=authorization_code&code=${authToken}&redirect_uri=http://localhost:3000/login-success`, {
+    fetch(`/api/generate_token`, {
       method: 'POST',
-      // mode: "no-cors",
-      // body: `grant_type=authorization_code&code=${authToken}&redirect_uri=http://localhost:3000/login-success`,
-      headers: {
-        Authorization: `Basic ${btoa('CLIENT_ID:CLIENT_SECRET')}`
-      }
+      body: JSON.stringify({ code: authToken })
     })
       .then(res => res.json())
       .then((response) => {
